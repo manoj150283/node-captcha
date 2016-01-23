@@ -20,7 +20,7 @@ module.exports = function(params){
         var ctx = canvas.getContext('2d');
         ctx.antialias = 'gray';
         ctx.fillStyle = params.background;
-        ctx.fillRect(0, 0, 250, 150);
+        ctx.fillRect(0, 0, params.canvasWidth, params.canvasHeight);
         ctx.fillStyle = params.color;
         ctx.lineWidth = params.lineWidth;
         ctx.strokeStyle = params.color;
@@ -35,7 +35,7 @@ module.exports = function(params){
 		var text = params.text || ('' + Math.random()).substr(3, params.codeLength);
 
       for (i = 0; i < text.length; i++) {
-			ctx.setTransform(Math.random() * 0.5 + 1, Math.random() * 0.4, Math.random() * 0.4, Math.random() * 0.5 + 1, 30 * i + 20, 100);
+            ctx.setTransform(Math.random() * 0.5 + 1, Math.random() * 0.4, Math.random() * 0.4, Math.random() * 0.5 + 1, 30 * i + 20,  (params.canvasHeight/2)+ 5);
 			ctx.fillText(text.charAt(i), 0, 0);
 		}
 
